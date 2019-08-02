@@ -14,7 +14,16 @@ class App extends Component<AppProps, AppState> {
     this.state = {
       name: 'React'
     };
+
+    
+    navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'user' }
+    }).then(stream => {
+      console.info(stream,this.fullBleedVideo.current);
+      this.fullBleedVideo.current.srcObject = stream;
+    });
   }
+  private fullBleedVideo = React.createRef<HTMLVideoElement>();
 
   render() {
     return (
@@ -23,6 +32,10 @@ class App extends Component<AppProps, AppState> {
         <p>
           Start editing to see some magic happen :)
         </p>
+        <video 
+        ref={this.fullBleedVideo}
+        autoPlay
+        />
       </div>
     );
   }
