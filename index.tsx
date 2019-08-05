@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Hello from './components/Hello/Hello';
 import './style.css';
 
@@ -24,14 +25,24 @@ class App extends Component<AppProps, AppState> {
     });
   }
   private fullBleedVideo = React.createRef<HTMLVideoElement>();
+  Product(){
+    return <div></div>
+  }
 
   render() {
     return (
       <div>
+       
         <Hello name={this.state.name} />
         <p>
           Start editing to see some magic happen :)
         </p>
+        <nav>
+          <ul>
+            <li>
+            </li>
+          </ul>
+        </nav>
         <video 
         ref={this.fullBleedVideo}
         autoPlay
